@@ -2,8 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	<link href="leaflet.css" rel="stylesheet">
+	<script type="text/javascript" src="leaflet.js"></script>
+	
+
   </head>
   <body>
-  
+	<div id="map" style="width:100%; height:600px"></div>
+	<script type="text/javascript">
+	var map = L.map('map').setView([51.505, -0.09], 13);
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	L.marker([51.5, -0.09]).addTo(map)
+		.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+		.openPopup();
+	</script>
   </body>
 </html>
